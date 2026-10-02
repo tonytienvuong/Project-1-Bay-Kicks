@@ -1,8 +1,5 @@
 # Bay Kicks — CS351 Project 1
 
-A single-page storefront for a fictional sneaker shop, built with React, Vite and
-Bootstrap 5. Everything runs in the browser — no server, no database.
-
 ## Run it locally
 
     npm install
