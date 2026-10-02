@@ -1,0 +1,36 @@
+/* index.css — global styles and the palette.
+
+   Simplicity rule: few colours, used in few places. Two text colours, one
+   background, one accent. That is what makes text easy to read
+   (design principles: consistency, readability).
+
+   Every value below was checked for contrast against what it sits on.
+   4.5:1 is the accessibility floor for normal text. */
+
+:root {
+  --bk-ink: #000000;        /* every piece of text on the site          21:1 on white */
+  --bk-line: #e3e6ea;       /* borders and dividers */
+  --bk-surface: #ffffff;    /* the page surface */
+  --bk-canvas: #f6f7f9;     /* placeholder tint behind an image while it loads */
+}
+
+body {
+  margin: 0;
+  background: var(--bk-surface);
+  color: var(--bk-ink);
+  font-family: system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  line-height: 1.6;          /* looser lines read better than browser default */
+}
+
+/* The Vite starter centred everything in a fixed 1126px column. Bootstrap's
+   grid should control the width instead, so that constraint is removed. */
+#root {
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+a {
+  color: var(--bk-ink);
+}

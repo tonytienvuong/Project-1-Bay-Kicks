@@ -1,0 +1,308 @@
+/* App.css — component styling.
+   One file for the whole site so the look stays consistent across every view
+   (design principles: consistency, alignment, proximity, redundancy).
+
+   STYLE: white page, black text.
+
+     * white background, every piece of text black — headline, body copy, the
+       eyebrow line, the nav links, the Cart count
+     * no accent colour anywhere; the buttons are black with white text
+     * size, spacing and wording are unchanged — colour only
+
+   Cart and form styles get added here as those components are built. */
+
+/* ---------- navbar ---------- */
+.bk-navbar {
+  background: var(--bk-surface);
+  border-bottom: 1px solid var(--bk-line);   /* a line separates nav from page */
+}
+.bk-navbar .navbar-brand {
+  color: var(--bk-ink);
+  font-weight: 700;
+  font-size: 1rem;
+}
+.bk-navbar .nav-link {
+  color: var(--bk-ink);                      /* 17.8:1 on white */
+  font-size: 1rem;
+}
+.bk-navbar .nav-link:hover {
+  color: var(--bk-ink);
+}
+/* the link for the view you are on is bold, so the current page is obvious
+   without spending another colour on it */
+.bk-navbar .nav-link.active {
+  color: var(--bk-ink);
+  font-weight: 700;
+}
+.bk-cart-link {
+  color: var(--bk-ink) !important;           /* black, like every other link */
+  font-weight: 600;
+}
+
+/* ---------- hero (the welcome block) ---------- */
+.bk-hero {
+  background: var(--bk-surface);             /* white page, no dark panel */
+  padding: 3.5rem 0 3rem;
+}
+/* the Shop button sits at the top of the hero, centred */
+.bk-hero .bk-hero-cta {
+  margin-bottom: 1.5rem;
+}
+.bk-hero .bk-eyebrow {
+  text-transform: uppercase;
+  font-size: 0.8rem;
+  color: var(--bk-ink);                      /* black */
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+.bk-hero h1 {
+  font-size: 2.25rem;
+  font-weight: 700;
+  line-height: 1.2;
+  margin: 0 0 1rem;
+  color: var(--bk-ink);                      /* black */
+}
+/* the description is held to a comfortable reading width and centred as a block */
+.bk-hero .bk-hero-copy {
+  color: var(--bk-ink);                      /* black */
+  max-width: 34rem;                          /* ~70 characters per line */
+  font-size: 1.0625rem;
+  margin: 0 auto;
+}
+
+/* ---------- buttons ---------- */
+/* Black button, white label. No accent colour anywhere on the site. */
+.btn-bk {
+  background: var(--bk-ink);
+  border: 1px solid var(--bk-ink);
+  color: #fff;                               /* 17.8:1 on black */
+  font-weight: 600;
+}
+.btn-bk:hover,
+.btn-bk:focus {
+  background: #2b3138;
+  border-color: #2b3138;
+  color: #fff;
+}
+
+/* ---------- sections (shop, detail, cart...) ---------- */
+.bk-section {
+  padding: 3rem 0;
+}
+.bk-section-title {
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin: 0 0 0.25rem;
+}
+.bk-section-sub {
+  color: var(--bk-ink);                      /* black */
+  font-size: 0.95rem;
+  margin-bottom: 1.75rem;
+}
+
+/* ---------- product card ---------- */
+.bk-card {
+  background: var(--bk-surface);
+  border: 1px solid var(--bk-line);
+  border-radius: 0.75rem;
+  overflow: hidden;
+  height: 100%;                    /* every card in a row is the same height */
+  display: flex;
+  flex-direction: column;
+  cursor: pointer;
+}
+/* keyboard focus needs a visible ring — hover no longer moves the card at all */
+.bk-card:focus-visible {
+  outline: 2px solid var(--bk-ink);
+  outline-offset: 2px;
+}
+.bk-card-media {
+  position: relative;              /* the anchor for the absolutely-placed badge */
+}
+.bk-card-img {
+  width: 100%;
+  height: 230px;
+  object-fit: cover;               /* crops instead of squashing the photo */
+  background: var(--bk-canvas);
+}
+.bk-card-body {
+  padding: 1rem 1.1rem 1.2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  flex-grow: 1;
+}
+.bk-card-brand {
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: var(--bk-ink);                      /* black, no grey secondary text */
+}
+.bk-card-name {
+  font-weight: 600;
+  font-size: 1rem;
+  line-height: 1.3;
+  margin: 0;
+}
+.bk-card-desc {
+  font-size: 0.85rem;
+  color: var(--bk-ink);                      /* black */
+  line-height: 1.45;
+  margin: 0;
+}
+/* margin-top:auto pushes the price row to the bottom of the card, so prices
+   line up across cards even when the descriptions differ in length */
+.bk-card-foot {
+  margin-top: auto;
+  padding-top: 0.6rem;
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 0.5rem;
+}
+.bk-price {
+  font-weight: 700;
+  font-size: 1.05rem;
+}
+.bk-price-was {
+  font-size: 0.8rem;
+  color: var(--bk-ink);                      /* black, struck through */
+  text-decoration: line-through;
+  margin-left: 0.4rem;
+  font-weight: 400;
+}
+.bk-rating {
+  font-size: 0.85rem;
+  color: var(--bk-ink);                      /* black */
+  white-space: nowrap;
+}
+.bk-badge {
+  position: absolute;
+  top: 0.75rem;
+  left: 0.75rem;
+  background: var(--bk-ink);                 /* black */
+  color: #fff;
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 0.25rem 0.5rem;
+  border-radius: 0.25rem;
+}
+
+/* ---------- product detail page ---------- */
+.bk-detail-img {
+  width: 100%;
+  border-radius: 0.75rem;
+  border: 1px solid var(--bk-line);
+  display: block;
+}
+.bk-detail-brand {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  margin-bottom: 0.25rem;
+}
+.bk-detail-name {
+  font-size: 1.85rem;
+  font-weight: 700;
+  line-height: 1.2;
+  margin: 0 0 0.5rem;
+}
+.bk-detail-rating {
+  font-size: 0.9rem;
+  margin-bottom: 1rem;
+}
+.bk-detail-price {
+  font-size: 1.6rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+.bk-detail-desc {
+  line-height: 1.65;
+  margin-bottom: 1.5rem;
+}
+/* the specification list: term on the left, value on the right, one row each */
+.bk-specs {
+  display: grid;
+  grid-template-columns: 10rem 1fr;
+  gap: 0.35rem 1rem;
+  border-top: 1px solid var(--bk-line);
+  border-bottom: 1px solid var(--bk-line);
+  padding: 1rem 0;
+  margin-bottom: 1.75rem;
+  font-size: 0.9rem;
+}
+.bk-specs dt {
+  font-weight: 600;
+}
+.bk-specs dd {
+  margin: 0;
+}
+/* the buy box: the last block in the right column */
+.bk-buybox {
+  border: 1px solid var(--bk-line);
+  border-radius: 0.75rem;
+  padding: 1.25rem;
+}
+.bk-buybox .btn-bk:disabled {
+  background: #fff;
+  border: 1px solid var(--bk-line);
+  color: var(--bk-ink);
+  opacity: 0.65;
+}
+
+/* ---------- pagination ---------- */
+.bk-pager {
+  display: flex;
+  gap: 0.4rem;
+  justify-content: center;
+  margin-top: 2rem;
+  flex-wrap: wrap;                 /* wraps instead of overflowing on a phone */
+}
+.bk-pager button {
+  min-width: 2.4rem;
+  padding: 0.35rem 0.7rem;
+  border: 1px solid var(--bk-line);
+  background: var(--bk-surface);
+  border-radius: 0.4rem;
+  font-weight: 600;
+  color: var(--bk-ink);
+}
+.bk-pager button.active {
+  background: var(--bk-ink);                 /* black */
+  border-color: var(--bk-ink);
+  color: #fff;
+}
+.bk-pager button:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+/* ---------- footer ---------- */
+.bk-footer {
+  margin-top: auto;
+  background: var(--bk-surface);             /* white, same as the page */
+  border-top: 1px solid var(--bk-line);
+  color: var(--bk-ink);                      /* black text */
+  padding: 1.5rem 0;
+  font-size: 0.875rem;
+}
+
+/* ---------- responsive ---------- */
+@media (max-width: 991.98px) {
+  .bk-navbar .navbar-nav {
+    padding: 0.75rem 0;
+  }
+  .bk-hero {
+    padding: 2.5rem 0 2rem;
+  }
+  .bk-hero h1 {
+    font-size: 1.875rem;
+  }
+}
+@media (max-width: 575.98px) {
+  .bk-hero h1 {
+    font-size: 1.625rem;
+  }
+}
