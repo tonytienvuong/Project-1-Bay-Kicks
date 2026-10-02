@@ -41,6 +41,7 @@ function ProductDetailView({ product, onAddToCart }) {
       color,
       quantity: qty,
       unitPrice,
+      stock: product.quantityInStock,
     })
 
     setSize('')                     // reset so the next add starts clean

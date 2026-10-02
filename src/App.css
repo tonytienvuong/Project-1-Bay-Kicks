@@ -252,6 +252,138 @@
   opacity: 0.65;
 }
 
+/* ---------- cart page ---------- */
+.bk-cart-list {
+  border-top: 1px solid var(--bk-line);
+}
+.bk-cart-item {
+  display: grid;
+  grid-template-columns: 5rem 1fr auto auto auto;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem 0;
+  border-bottom: 1px solid var(--bk-line);
+}
+.bk-cart-img {
+  width: 100%;
+  aspect-ratio: 1;
+  object-fit: cover;
+  border-radius: 0.5rem;
+  border: 1px solid var(--bk-line);
+}
+.bk-cart-name {
+  font-size: 1rem;
+  font-weight: 600;
+  margin: 0 0 0.15rem;
+}
+.bk-cart-options,
+.bk-cart-unit {
+  font-size: 0.85rem;
+  margin: 0;
+}
+.bk-cart-qty {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+.bk-qty-btn {
+  width: 2rem;
+  height: 2rem;
+  line-height: 1;
+  border: 1px solid var(--bk-ink);
+  background: var(--bk-surface);
+  color: var(--bk-ink);
+  border-radius: 0.35rem;
+  font-size: 1.1rem;
+  font-weight: 700;
+  cursor: pointer;
+}
+.bk-qty-btn:hover:not(:disabled) {
+  background: var(--bk-ink);
+  color: #fff;
+}
+.bk-qty-btn:disabled {
+  opacity: 0.35;
+  cursor: not-allowed;
+}
+.bk-qty-value {
+  min-width: 1.5rem;
+  text-align: center;
+  font-weight: 600;
+}
+.bk-cart-line-total {
+  font-weight: 700;
+  min-width: 5rem;
+  text-align: right;
+  margin: 0;
+}
+.bk-cart-remove {
+  background: none;
+  border: none;
+  padding: 0;
+  font-size: 0.85rem;
+  text-decoration: underline;
+  color: var(--bk-ink);
+  cursor: pointer;
+}
+/* the subtotal panel under the list */
+.bk-cart-total {
+  margin-top: 1.5rem;
+  margin-left: auto;
+  max-width: 20rem;
+  border: 1px solid var(--bk-line);
+  border-radius: 0.75rem;
+  padding: 1.25rem;
+}
+.bk-cart-total-row {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 0.5rem;
+}
+
+/* ---------- account forms ---------- */
+.bk-form-card {
+  max-width: 28rem;
+  margin: 0 auto;
+  border: 1px solid var(--bk-line);
+  border-radius: 0.75rem;
+  padding: 1.75rem;
+}
+/* the error message that sits directly under its own field */
+.bk-error {
+  color: var(--bk-ink);
+  background: #f6f7f9;
+  border-left: 3px solid var(--bk-ink);
+  padding: 0.35rem 0.6rem;
+  margin: 0.35rem 0 0;
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+.bk-success {
+  border: 1px solid var(--bk-ink);
+  border-radius: 0.5rem;
+  padding: 0.6rem 0.8rem;
+  margin-bottom: 1rem;
+  font-weight: 600;
+}
+.bk-optional {
+  font-weight: 400;
+}
+.bk-form-alt {
+  margin: 1.25rem 0 0;
+  font-size: 0.9rem;
+}
+/* a button that reads as a link */
+.bk-link {
+  background: none;
+  border: none;
+  padding: 0;
+  font: inherit;
+  color: var(--bk-ink);
+  text-decoration: underline;
+  cursor: pointer;
+}
+
 /* ---------- pagination ---------- */
 .bk-pager {
   display: flex;
