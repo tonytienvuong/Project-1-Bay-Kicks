@@ -1,19 +1,20 @@
 /* ProductDetailView.jsx — the full page for one product.
    Props: product (one object), onAddToCart (called with the finished cart line).
 
-   Deliberately short. Right column: the name, one line of facts about the shoe,
-   one line of description, then the buy box. The long technical description and
-   the rest of the spec fields stay in products.json — they are just not printed
-   here, which is what keeps the page calm.
-
-   Spec rows come from the SPECS list below rather than hand-written markup. */
+   Right column: the name, the short and long descriptions, the full spec list,
+   then the buy box — the detail view shows the product's information, not a
+   curated slice of it. The spec rows come from the SPECS list below rather than
+   hand-written markup. */
 
 import { Fragment, useState } from 'react'
 
 // Each row is [what the shopper reads, which products.json field it comes from].
 const SPECS = [
   ['Material', 'material'],
+  ['Gender', 'gender'],
   ['Weight', 'weight'],
+  ['Heel drop', 'heelDrop'],
+  ['Water resistant', 'waterResistant'],
   ['Arch support', 'archSupport'],
   ['In stock', 'quantityInStock'],
 ]
@@ -70,12 +71,20 @@ function ProductDetailView({ product, onAddToCart }) {
             </p>
 
             <p className="bk-detail-desc">{product.description}</p>
+            <p className="bk-detail-desc">{product.longDescription}</p>
 
             <dl className="bk-specs">
               {SPECS.map(([label, key]) => (
                 <Fragment key={key}>
                   <dt>{label}</dt>
-                  <dd>{product[key]}</dd>
+                  <dd>
+                    {/* the JSON stores this as true/false — shoppers read Yes/No */}
+                    {key === 'waterResistant'
+                      ? product[key]
+                        ? 'Yes'
+                        : 'No'
+                      : product[key]}
+                  </dd>
                 </Fragment>
               ))}
             </dl>
@@ -115,7 +124,10 @@ function ProductDetailView({ product, onAddToCart }) {
                 min="1"
                 max={product.quantityInStock}
                 value={qty}
-                onChange={(e) => setQty(Number(e.target.value))}
+                onChange={(e) => {
+                  // Math.max(1, ...) also covers the cleared field: Number('') is 0
+                  setQty(Math.max(1, Math.trunc(Number(e.target.value) || 1)))
+                }}
               />
 
               <button type="submit" className="btn btn-bk w-100" disabled={!ready}>

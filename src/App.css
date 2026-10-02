@@ -69,6 +69,16 @@
   font-size: 1.0625rem;
   margin: 0 auto;
 }
+/* hero photo: never wider than the screen, so a phone never scrolls sideways */
+.bk-hero-img {
+  display: block;
+  width: 100%;
+  max-width: 34rem;                          /* same column as the copy above it */
+  height: auto;
+  margin: 2rem auto 0;
+  border: 1px solid var(--bk-line);
+  border-radius: 0.75rem;
+}
 
 /* ---------- buttons ---------- */
 /* Black button, white label. No accent colour anywhere on the site. */

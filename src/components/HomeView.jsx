@@ -23,6 +23,12 @@ function HomeView({ setView }) {
           skate sessions, long walks and fast miles. Pick a size, pick a color, build your
           cart.
         </p>
+
+        <img
+          className="bk-hero-img"
+          src="./images/shoe-11.jpg"
+          alt="Dolores Skate — from the Bay Kicks collection"
+        />
       </div>
     </section>
   )
